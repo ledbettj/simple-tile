@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema path="/io/throttle/SimpleTile/" id="io.throttle.SimpleTile">
+    <key name="tile-left-top" type="as">
+      <default>
+        <![CDATA[['<Super>Kp_7']]]>
+      </default>
+      <summary>
+        Tile Top Left Corner
+      </summary>
+    </key>
+    <key name="tile-top-full" type="as">
+      <default>
+        <![CDATA[['<Super>Kp_8']]]>
+      </default>
+      <summary>
+        Tile Top Right Corner
+      </summary>
+    </key>
+    <key name="tile-right-top" type="as">
+      <default>
+        <![CDATA[['<Super>Kp_9']]]>
+      </default>
+      <summary>
+        Tile Top
+      </summary>
+    </key>
+
+    <key name="tile-left-full" type="as">
+      <default>
+        <![CDATA[['<Super>Kp_4']]]>
+      </default>
+      <summary>
+        Tile Left Side
+      </summary>
+    </key>
+    <key name="tile-right-full" type="as">
+      <default>
+        <![CDATA[['<Super>Kp_6']]]>
+      </default>
+      <summary>
+        Tile Right Side
+      </summary>
+    </key>
+
+    <key name="tile-left-bottom" type="as">
+      <default>
+        <![CDATA[['<Super>Kp_1']]]>
+      </default>
+      <summary>
+        Tile Bottom Left Corner
+      </summary>
+    </key>
+    <key name="tile-bottom-full" type="as">
+      <default>
+        <![CDATA[['<Super>Kp_2']]]>
+      </default>
+      <summary>
+        Tile Bottom
+      </summary>
+    </key>
+    <key name="tile-right-bottom" type="as">
+      <default>
+        <![CDATA[['<Super>Kp_3']]]>
+      </default>
+      <summary>
+        Tile Ride Side
+      </summary>
+    </key>
+
+
+  </schema>
+</schemalist>

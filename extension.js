@@ -17,7 +17,8 @@ const KEYBINDINGS = [
   'tile-right-full',
   'tile-right-bottom',
   'tile-top-full',
-  'tile-bottom-full'
+  'tile-bottom-full',
+  'tile-switch-monitor'
 ];
 
 function init() {
@@ -68,6 +69,9 @@ SimpleTile.prototype.getScreenGeometry = function() {
   this.primaryScreen = this.screens[primary];
 };
 
+SimpleTile.prototype.nextMonitor = function(index) {
+  return this.screens[(index + 1) % this.screens.length];
+};
 
 SimpleTile.prototype.registerKeybindings = function() {
   KEYBINDINGS.forEach(function(binding) {
@@ -103,6 +107,7 @@ SimpleTile.prototype.tile_left_top = function() {
 SimpleTile.prototype.tile_right_top = function() {
   let window = global.display.focus_window;
   let screen = this.primaryScreen;
+
   window.move_resize_frame(
     false,
     screen.x + screen.w / 2,
@@ -175,5 +180,26 @@ SimpleTile.prototype.tile_bottom_full = function() {
     screen.y + screen.h / 2,
     screen.w,
     screen.h / 2
+  );
+};
+
+SimpleTile.prototype.tile_switch_monitor = function() {
+  let window       = global.display.focus_window;
+  let monitorIndex = window.get_monitor();
+  let rect         = window.get_frame_rect();
+  let oldScreen    = this.screens[monitorIndex];
+  let newScreen    = this.nextMonitor(monitorIndex);
+
+  let xscale = newScreen.w  / oldScreen.w;
+  let yscale = newScreen.h / oldScreen.h;
+  let xoff   = rect.x - oldScreen.x;
+  let yoff   = rect.y - oldScreen.y;
+
+  window.move_resize_frame(
+    false,
+    Math.floor(newScreen.x + xoff * xscale),
+    Math.floor(newScreen.y + yoff * yscale),
+    Math.floor(rect.width  * xscale),
+    Math.floor(rect.height * yscale)
   );
 };

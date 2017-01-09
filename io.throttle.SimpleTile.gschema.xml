@@ -64,7 +64,15 @@
         <![CDATA[['<Super>Kp_3']]]>
       </default>
       <summary>
-        Tile Ride Side
+        Tile Bottom Right Corner
+      </summary>
+    </key>
+    <key name="tile-switch-monitor" type="as">
+      <default>
+        <![CDATA[['<Super>Kp_Enter']]]>
+      </default>
+      <summary>
+        Move to the next monitor
       </summary>
     </key>
 

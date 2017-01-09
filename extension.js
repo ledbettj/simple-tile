@@ -91,7 +91,13 @@ SimpleTile.prototype.unregisterKeybindings = function() {
 SimpleTile.prototype.tile_left_top = function() {
   let window = global.display.focus_window;
   let screen = this.primaryScreen;
-  window.move_resize_frame(false, 0, 0, screen.w / 2, screen.h / 2);
+  window.move_resize_frame(
+    false,
+    screen.x,
+    screen.y,
+    screen.w / 2,
+    screen.h / 2
+  );
 };
 
 SimpleTile.prototype.tile_right_top = function() {
@@ -99,7 +105,8 @@ SimpleTile.prototype.tile_right_top = function() {
   let screen = this.primaryScreen;
   window.move_resize_frame(
     false,
-    screen.w / 2, 0,
+    screen.x + screen.w / 2,
+    screen.y,
     screen.w / 2, screen.h / 2
   );
 };
@@ -107,7 +114,14 @@ SimpleTile.prototype.tile_right_top = function() {
 SimpleTile.prototype.tile_left_bottom = function() {
   let window = global.display.focus_window;
   let screen = this.primaryScreen;
-  window.move_resize_frame(false, 0, screen.h / 2, screen.w / 2, screen.h / 2);
+
+  window.move_resize_frame(
+    false,
+    screen.x,
+    screen.y + screen.h / 2,
+    screen.w / 2,
+    screen.h / 2
+  );
 };
 
 SimpleTile.prototype.tile_right_bottom = function() {
@@ -115,15 +129,23 @@ SimpleTile.prototype.tile_right_bottom = function() {
   let screen = this.primaryScreen;
   window.move_resize_frame(
     false,
-    screen.w / 2, screen.h / 2,
-    screen.w / 2, screen.h / 2
+    screen.x + screen.w / 2,
+    screen.y + screen.h / 2,
+    screen.w / 2,
+    screen.h / 2
   );
 };
 
 SimpleTile.prototype.tile_left_full = function() {
   let window = global.display.focus_window;
   let screen = this.primaryScreen;
-  window.move_resize_frame(false, 0, 0, screen.w / 2, screen.h);
+  window.move_resize_frame(
+    false,
+    screen.x,
+    screen.y,
+    screen.w / 2,
+    screen.h
+  );
 };
 
 SimpleTile.prototype.tile_right_full = function() {
@@ -131,15 +153,17 @@ SimpleTile.prototype.tile_right_full = function() {
   let screen = this.primaryScreen;
   window.move_resize_frame(
     false,
-    screen.w / 2, 0,
-    screen.w / 2, screen.h
+    screen.x + screen.w / 2,
+    screen.y,
+    screen.w / 2,
+    screen.h
   );
 };
 
 SimpleTile.prototype.tile_top_full = function() {
   let window = global.display.focus_window;
   let screen = this.primaryScreen;
-  window.move_resize_frame(false, 0, 0, screen.w, screen.h / 2);
+  window.move_resize_frame(false, screen.x, screen.y, screen.w, screen.h / 2);
 };
 
 SimpleTile.prototype.tile_bottom_full = function() {
@@ -147,7 +171,9 @@ SimpleTile.prototype.tile_bottom_full = function() {
   let screen = this.primaryScreen;
   window.move_resize_frame(
     false,
-    screen.w / 2, screen.h / 2,
-    screen.w, screen.h / 2
+    screen.x + screen.w / 2,
+    screen.y + screen.h / 2,
+    screen.w,
+    screen.h / 2
   );
 };

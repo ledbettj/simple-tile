@@ -75,6 +75,14 @@
         Move to the next monitor
       </summary>
     </key>
+    <key name="tile-full" type="as">
+      <default>
+        <![CDATA[['<Super>Kp_5']]]>
+      </default>
+      <summary>
+        Tile full screen
+      </summary>
+    </key>
 
 
   </schema>

@@ -18,7 +18,8 @@ const KEYBINDINGS = [
   'tile-right-bottom',
   'tile-top-full',
   'tile-bottom-full',
-  'tile-switch-monitor'
+  'tile-switch-monitor',
+  'tile-full'
 ];
 
 function init() {
@@ -211,5 +212,18 @@ SimpleTile.prototype.tile_switch_monitor = function() {
     Math.floor(newScreen.y + yoff * yscale),
     Math.floor(rect.width  * xscale),
     Math.floor(rect.height * yscale)
+  );
+};
+
+SimpleTile.prototype.tile_full = function() {
+  let window = global.display.focus_window;
+  let screen = this.getWindowMonitor(window);
+
+  window.move_resize_frame(
+    false,
+    screen.x,
+    screen.y,
+    screen.w,
+    screen.h
   );
 };

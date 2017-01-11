@@ -69,6 +69,10 @@ SimpleTile.prototype.getScreenGeometry = function() {
   this.primaryScreen = this.screens[primary];
 };
 
+SimpleTile.prototype.getWindowMonitor = function(window) {
+  return this.screens[window.get_monitor()];
+};
+
 SimpleTile.prototype.nextMonitor = function(index) {
   return this.screens[(index + 1) % this.screens.length];
 };
@@ -94,7 +98,8 @@ SimpleTile.prototype.unregisterKeybindings = function() {
 
 SimpleTile.prototype.tile_left_top = function() {
   let window = global.display.focus_window;
-  let screen = this.primaryScreen;
+  let screen = this.getWindowMonitor(window);
+
   window.move_resize_frame(
     false,
     screen.x,
@@ -106,7 +111,7 @@ SimpleTile.prototype.tile_left_top = function() {
 
 SimpleTile.prototype.tile_right_top = function() {
   let window = global.display.focus_window;
-  let screen = this.primaryScreen;
+  let screen = this.getWindowMonitor(window);
 
   window.move_resize_frame(
     false,
@@ -118,7 +123,7 @@ SimpleTile.prototype.tile_right_top = function() {
 
 SimpleTile.prototype.tile_left_bottom = function() {
   let window = global.display.focus_window;
-  let screen = this.primaryScreen;
+  let screen = this.getWindowMonitor(window);
 
   window.move_resize_frame(
     false,
@@ -131,7 +136,8 @@ SimpleTile.prototype.tile_left_bottom = function() {
 
 SimpleTile.prototype.tile_right_bottom = function() {
   let window = global.display.focus_window;
-  let screen = this.primaryScreen;
+  let screen = this.getWindowMonitor(window);
+
   window.move_resize_frame(
     false,
     screen.x + screen.w / 2,
@@ -143,7 +149,8 @@ SimpleTile.prototype.tile_right_bottom = function() {
 
 SimpleTile.prototype.tile_left_full = function() {
   let window = global.display.focus_window;
-  let screen = this.primaryScreen;
+  let screen = this.getWindowMonitor(window);
+
   window.move_resize_frame(
     false,
     screen.x,
@@ -155,7 +162,8 @@ SimpleTile.prototype.tile_left_full = function() {
 
 SimpleTile.prototype.tile_right_full = function() {
   let window = global.display.focus_window;
-  let screen = this.primaryScreen;
+  let screen = this.getWindowMonitor(window);
+
   window.move_resize_frame(
     false,
     screen.x + screen.w / 2,
@@ -167,13 +175,15 @@ SimpleTile.prototype.tile_right_full = function() {
 
 SimpleTile.prototype.tile_top_full = function() {
   let window = global.display.focus_window;
-  let screen = this.primaryScreen;
+  let screen = this.getWindowMonitor(window);
+
   window.move_resize_frame(false, screen.x, screen.y, screen.w, screen.h / 2);
 };
 
 SimpleTile.prototype.tile_bottom_full = function() {
   let window = global.display.focus_window;
-  let screen = this.primaryScreen;
+  let screen = this.getWindowMonitor(window);
+
   window.move_resize_frame(
     false,
     screen.x + screen.w / 2,

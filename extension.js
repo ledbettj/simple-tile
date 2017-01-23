@@ -39,16 +39,19 @@ function disable() {
 function SimpleTile(settings) {
   this.settings = settings;
   this.keybindings = {};
+  this.signals = [];
 }
 
 
 SimpleTile.prototype.startup = function() {
   this.getScreenGeometry();
   this.registerKeybindings();
+  this.connectSignals();
 };
 
 SimpleTile.prototype.shutdown = function() {
   this.unregisterKeybindings();
+  this.disconnectSignals();
 };
 
 SimpleTile.prototype.getScreenGeometry = function() {
@@ -226,4 +229,17 @@ SimpleTile.prototype.tile_full = function() {
     screen.w,
     screen.h
   );
+};
+
+SimpleTile.prototype.connectSignals = function() {
+  this.signals.push(
+    Main.layoutManager.connect('monitors-changed', Lang.bind(this, this.getScreenGeometry))
+  );
+};
+
+SimpleTile.prototype.disconnectSignals = function() {
+  this.signals.forEach(function(signal) {
+    Main.layoutManager.disconnect(signal);
+  });
+  this.signals = [];
 };

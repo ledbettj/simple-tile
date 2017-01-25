@@ -20,19 +20,19 @@ Activate in `gnome-tweak-tool`.
 
 Use `Super+KeyPad<N>` to move the focused window.  For example,
 `Super+KeyPad3` will move the focused window to the bottom right quadrant.
+`Super+KeyPad<Enter>` will move the window to the next monitor.
 
 
 ## Status
 
-This is a really simple, early version.  Currently it supports tiling to
-the top,bottom, left or right halves of the screen, as well as any quarter
-of the screen.
+This is a really simple, early version.  Currently it supports:
+
+* Moving the focused window to a quarter/half of a screen
+* Making the focused window full sized
+* Moving the focused window between monitors, preserving size/placement.
 
 Current limitations:
 
-* preference pane is not yet built.  this means keybindings are not easily configurable.
-* does not take panel/bar into account when calculating grid position/height.
-* does not support more than 1 monitor.
-
-
-These are all planned.
+* no configuration panel.  This means keybindings are not easily configurable.
+* Does not work on windows that are maximized or "half maximized" via Super+LeftArrow, etc.
+* Does not have the ability to move window focus via keypad.

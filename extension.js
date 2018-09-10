@@ -55,8 +55,8 @@ SimpleTile.prototype.shutdown = function() {
 };
 
 SimpleTile.prototype.getScreenGeometry = function() {
-  let displayCount = global.screen.get_n_monitors(),
-      primary      = global.screen.get_primary_monitor();
+  let displayCount = Main.layoutManager.monitors.length,
+      primary      = Main.layoutManager.primaryIndex;
 
   this.screens = [];
 

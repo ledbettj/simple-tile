@@ -88,7 +88,7 @@ SimpleTile.prototype.registerKeybindings = function() {
       binding,
       this.settings,
       Meta.KeyBindingFlags.NONE,
-      Shell.ActionMode.NORMAL | Shell.ActionMode.MESSAGE_TRAY,
+      Shell.ActionMode.NORMAL,
       Lang.bind(this, this[handler])
     );
   }, this);

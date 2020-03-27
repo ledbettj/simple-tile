@@ -1,1 +1,1 @@
-{"uuid": "SimpleTile@throttle.io", "description": "simple tiling options", "name": "SimpleTile", "shell-version": ["3.32"]}
+{"uuid": "SimpleTile@throttle.io", "description": "simple tiling options", "name": "SimpleTile", "shell-version": ["3.32", "3.34", "3.36"]}
